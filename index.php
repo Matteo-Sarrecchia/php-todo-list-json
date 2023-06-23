@@ -1,18 +1,9 @@
 <?php
 
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: application/json');
 
-$saluto = [
-  [
-    "saluto" => "ciao",
-    "nome" => "matteo",
-    "cognome" => "rossi",
-  ],
-  [
-    "saluto" => "hello",
-    "nome" => "viola",
-    "cognome" => "bianchi",
-  ]
-];
+$todoListstr = file_get_contents("data.json");
 
-echo json_encode($saluto);
+echo $todoListstr;
