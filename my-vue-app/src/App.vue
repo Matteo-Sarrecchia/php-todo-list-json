@@ -14,14 +14,20 @@ export default {
     onSubmit() {
 
       const url = 'http://localhost/php-todo-list-json/newTask.php';
-      const data = this.newTask;
+      const data = {
+        testoTask: this.newTask,
+      };
       const headers = {
         headers: { 'Content-Type': 'multipart/form-data' }
       };
       axios.post(url, data, headers)
         .then(res => {
           const data = res.data;
+          console.log("data", data);
           this.todoList = data;
+
+          this.newTask = "";
+          console.log(this.newTask);
         })
     }
 

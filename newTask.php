@@ -2,9 +2,9 @@
 
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Headers: X-Requested-With");
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
-$newTask = $_POST;
+$newTask = $_POST["testoTask"];
 
 $todoListStr = file_get_contents("data.json");
 $todoList = json_decode($todoListStr);
