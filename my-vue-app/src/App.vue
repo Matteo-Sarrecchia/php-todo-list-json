@@ -27,10 +27,24 @@ export default {
           this.todoList = data;
 
           this.newTask = "";
-          console.log(this.newTask);
         })
-    }
+    },
+    deleteTask(index) {
 
+      const url = 'http://localhost/php-todo-list-json/deleteTask.php';
+      const data = { "index": index };
+      const headers = {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      };
+
+      axios.post(url, data, headers)
+        .then(res => {
+
+          const data = res.data;
+          this.todoList = data;
+          console.log("data", data);
+        });
+    }
   },
 
   mounted() {
@@ -50,6 +64,7 @@ export default {
   <ul>
     <li v-for="(newTask, index) in todoList" :key="index">
       {{ newTask }}
+      <button type="button" @click="deleteTask(index)">X</button>
     </li>
   </ul>
   <form @submit.prevent="onSubmit">
