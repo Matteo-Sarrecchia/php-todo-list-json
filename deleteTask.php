@@ -13,5 +13,5 @@ array_splice($todoList, $index, 1);
 
 $todoListStr = json_encode($todoList);
 
-file_put_contents("data.json", $stodoListStr);
+file_put_contents("data.json", $todoListStr);
 echo json_encode($todoList);

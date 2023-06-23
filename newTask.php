@@ -9,6 +9,10 @@ $newTask = $_POST["testoTask"];
 $todoListStr = file_get_contents("data.json");
 $todoList = json_decode($todoListStr);
 
+if (!$todoList){
+    $todoList = [];
+};
+
 $todoList[] = $newTask;
 
 $todoListStr = json_encode($todoList);
