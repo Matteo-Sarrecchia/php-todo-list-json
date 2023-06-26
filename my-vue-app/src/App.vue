@@ -64,15 +64,26 @@ export default {
   <ul>
     <li v-for="(newTask, index) in todoList" :key="index">
       {{ newTask }}
-      <button type="button" @click="deleteTask(index)">X</button>
+      <button type="button" @click="deleteTask(index)" id="deleteButton">X</button>
     </li>
   </ul>
   <form @submit.prevent="onSubmit">
     <label for="newTask"> Create New Task </label>
     <input type="text" name="newTask" v-model="newTask">
     <br />
-    <input type="submit" value="CREATE">
+    <input id="createInput" type="submit" value="CREATE">
   </form>
 </template>
 
-<style ></style>
+<style >
+#deleteButton {
+  color: red;
+  padding: 5px 10px;
+  background-color: lightgray;
+  margin-left: 30px;
+}
+
+#createInput {
+  margin-top: 20px;
+}
+</style>
